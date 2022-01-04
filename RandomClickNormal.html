@@ -1,0 +1,59 @@
+data:text/html,<html>
+<head>
+<meta name="map"content="width=800,user-scalable=no"><style>%23m{background:white;margin:auto;display:block;}</style></meta>
+</head>
+<body>
+<canvas id="m"width="800px"height="600px"></canvas>
+<script>
+var canvas=document.getElementById('m');
+var c=canvas.getContext('2d');
+var cs=[];
+var cls=["red","blue","green"];
+var bg=true;
+var scr=0;
+vscr();
+alert("RandomClick");
+canvas.onmousedown=function(e){dlc(e);};
+function oc(x,y,r,c){this.x=x;this.y=y;this.r=r;this.c=c;}
+function rft(m, mx){return Math.floor(Math.random()*(mx-m+1)+m);}
+setInterval(mc,1000);
+function mc(){
+if(bg){
+if(cs.length>2){alert("GameOver");bg=false;}
+var x=rft(100,600);
+var y=rft(100,400);
+var cl=cls[rft(0,2)];
+var mc=new oc(x,y,40,cl);
+cs.push(mc);
+dc();
+vscr();
+}
+}
+function dlc(e){
+var cx=e.layerX;
+var cy=e.layerY;
+for(var i=0;i<cs.length;i++){
+var ce=cs[i];
+var dfc=Math.sqrt(Math.pow(ce.x-cx,2)+Math.pow(ce.y-cy,2));
+if (dfc<=ce.r){
+cs.splice(i,1);
+scr++;
+dc();
+vscr();
+}
+}
+}
+function dc(){
+c.clearRect(0,0,800,600);
+for(var i=0;i<cs.length;i++){
+var ce=cs[i];
+c.beginPath();
+c.arc(ce.x,ce.y,ce.r,0,Math.PI*2);
+c.fillStyle=ce.c;
+c.fill();
+}
+}
+function vscr(){c.fillStyle='red';c.font="italic 30pt Arial";c.fillText("Score: "+scr,20,50);}
+</script>
+</body>
+</html>
