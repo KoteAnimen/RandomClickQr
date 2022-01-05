@@ -11,12 +11,14 @@ var cs=[];
 var cls=["red","blue","green"];
 var bg=true;
 var scr=0;
+var msp=400;
+var mxsp=1000;
 vscr();
 alert("RandomClick");
 canvas.onmousedown=function(e){dlc(e);};
 function oc(x,y,r,c){this.x=x;this.y=y;this.r=r;this.c=c;}
 function rft(m, mx){return Math.floor(Math.random()*(mx-m+1)+m);}
-setInterval(mc,1000);
+var tid=setInterval(mc,mxsp);
 function mc(){
 if(bg){
 if(cs.length>2){alert("GameOver");bg=false;}
@@ -37,6 +39,7 @@ var ce=cs[i];
 var dfc=Math.sqrt(Math.pow(ce.x-cx,2)+Math.pow(ce.y-cy,2));
 if (dfc<=ce.r){
 cs.splice(i,1);
+if(mxsp>msp){clearInterval(tid);mxsp-=10;tid=setInterval(mc, mxsp);}
 scr++;
 dc();
 vscr();
