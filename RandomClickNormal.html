@@ -21,7 +21,7 @@ function rft(m, mx){return Math.floor(Math.random()*(mx-m+1)+m);}
 var tid=setInterval(mc,mxsp);
 function mc(){
 if(bg){
-if(cs.length>2){alert("GameOver");bg=false;}
+go();
 var x=rft(100,600);
 var y=rft(100,400);
 var cl=cls[rft(0,2)];
@@ -56,6 +56,7 @@ c.fillStyle=ce.c;
 c.fill();
 }
 }
+function go(){if(cs.length>2){alert("GameOver");bg=false;}}
 function vscr(){c.fillStyle='red';c.font="italic 30pt Arial";c.fillText("Score: "+scr,20,50);}
 </script>
 </body>
